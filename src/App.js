@@ -1,19 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Doctor from "./components/Doctor";
-import Patient from "./components/Patient";
-import VideoCall from "./components/VideoCall";
+import { Routes, Route } from "react-router-dom";
+import DoctorPortal from "./DoctorPortal";
+import PatientPortal from "./PatientPortal";
+import VideoCall from "./VideoCall";
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Doctor />} />
-        <Route path="/patient" element={<Patient />} />
-        <Route path="/call/:room" element={<VideoCall />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<h1>Welcome to the Video Call App</h1>} />
+      <Route path="/doctor/:doctorId" element={<DoctorPortal />} />
+      <Route path="/patient/:patientName" element={<PatientPortal />} />
+      <Route path="/call/:room" element={<VideoCall />} />
+    </Routes>
   );
-};
+}
 
 export default App;
